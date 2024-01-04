@@ -1,13 +1,13 @@
 
 import React,{Suspense, useEffect} from "react"
 import Image from 'next/image'
-import dynamic from 'next/dynamic'
 import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
 import getListings, { IListingsParams } from "./actions/getListings";
 import ListingCard from "./components/listings/ListingCard";
 import getCurrentUser from "./actions/getCurrentUser";
-const Spline = dynamic(() => import('@splinetool/react-spline'), { ssr: false});
+
+export const dynamic = 'force-dynamic'
 
 interface HomeProps {
   searchParams: IListingsParams
@@ -17,17 +17,17 @@ export default async function  Home({searchParams}:HomeProps) {
   console.log(searchParams);
   const currentUser = await getCurrentUser()
   const isEmpty = listings.length === 0
-
+  
   if(isEmpty) {
     return(
       <EmptyState showReset/>
-    )
-  }
-
- 
-
-  return (
-    <Container>
+      )
+    }
+    
+    
+    
+    return (
+      <Container>
       <div className="
       pt-24
       grid
