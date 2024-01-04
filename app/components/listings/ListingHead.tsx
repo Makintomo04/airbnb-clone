@@ -22,7 +22,7 @@ const ListingHead: FC<ListingHeadProps> = ({id,title,imageSrc,locationValue,curr
     <>
     <Heading title={title} subtitle={`${location?.region}, ${location?.label}`}/>
     <div className="w-full h-[60vh] overflow-hidden rounded-xl relative">
-      <Image alt="airbnb image" fill src={imageSrc} className='w-full cover'/>
+      <Image alt="airbnb image" fill src={imageSrc} className='w-full' objectFit='cover' objectPosition='top'/>
       <div className="absolute top-5 right-5">
         <HeartButton listingId={id} currentUser={currentUser!}/>
       </div>

@@ -57,6 +57,7 @@ const ListingCard: FC<ListingCardProps> = ({data,reservation,onAction,disabled,a
           className="
             aspect-square 
             w-full 
+            
             relative 
             overflow-hidden 
             rounded-xl
@@ -64,31 +65,31 @@ const ListingCard: FC<ListingCardProps> = ({data,reservation,onAction,disabled,a
         >
         <Image
          fill
+         objectFit='cover' objectPosition='center'
          className="
-           object-cover 
            h-full 
            w-full 
-           group-hover:scale-110 
+           group-hover:scale-105 
            transition
          "
          src={data.imageSrc}
          alt="Listing"
         />
-        <div className="absolute top-3 right-3">
+        <div className="absolute top-4 right-4">
           <HeartButton
           listingId={data.id}
           currentUser={currentUser as SafeUser}
           />
         </div>
         </div>
-        <div className="font-semibold text-md">
+        <div className="font-semibold text-[15px]">
           {location?.region}, {location?.label}
         </div>
-        <div className="font-light text-neutral-500">
+        <div className="font-light text-neutral-500 -mt-3 text-md">
           {reservationDate || data.category}
         </div>
-        <div className="flex flex-row items-center gap-1">
-          <div className="font-semibold">
+        <div className="flex flex-row items-center gap-1 text-md underline -mt-1">
+          <div className="font-semibold ">
             £ {price}
           </div>
           {!reservation && (

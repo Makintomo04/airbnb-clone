@@ -14,7 +14,7 @@ import SearchModal from './components/modals/SearchModal'
 const font = Montserrat({ 
   subsets: ['latin'], 
 });
-
+export const dynamic = 'auto';
 
 export const metadata: Metadata = {
   title: 'Airbnb | Holiday rentals, cabins, beach houses & more',
