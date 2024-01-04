@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Nunito } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 import './globals.css'
 import Navbar from './components/navbar/Navbar'
 import Modal from './components/Modal'
@@ -9,15 +9,16 @@ import LoginModal from './components/modals/LoginModal'
 import { get } from 'http'
 import getCurrentUser from './actions/getCurrentUser'
 import RentModal from './components/modals/RentModal'
+import SearchModal from './components/modals/SearchModal'
 
-const font = Nunito({ 
+const font = Montserrat({ 
   subsets: ['latin'], 
 });
 
 
 export const metadata: Metadata = {
-  title: 'AirBnb',
-  description: 'AirBnb Clone',
+  title: 'Airbnb | Holiday rentals, cabins, beach houses & more',
+  description: 'Airbnb Clone by Michael Akintomo',
 }
 
 export default async function RootLayout({
@@ -30,11 +31,14 @@ export default async function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <ToasterProvider/>
+        <SearchModal/>
         <RentModal/>
         <LoginModal/>
         <RegisterModal/>
         <Navbar currentUser={currentUser}/>
+        <div className="pb-20 py-28">
         {children}
+        </div>
         </body>
     </html>
   )

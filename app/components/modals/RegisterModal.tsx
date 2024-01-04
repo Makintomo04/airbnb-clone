@@ -45,6 +45,7 @@ const RegisterModal: FC<RegisterModalProps> = ({}) => {
       if (response.data.success) {
         toast.success("Account created successfully");
         registerModal.onClose()
+        loginModal.onOpen()
       }
     } catch (error) {
       toast.error((error as any).response.data.message || "Something went wrong");

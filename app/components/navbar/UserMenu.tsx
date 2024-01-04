@@ -9,6 +9,7 @@ import { User } from '@prisma/client';
 import { SafeUser } from '@/app/types';
 import { signOut } from 'next-auth/react';
 import useRentModal from '@/app/hooks/useRentModal';
+import { useRouter } from 'next/navigation';
 
 interface UserMenuProps {
   currentUser?:SafeUser | null;
@@ -19,6 +20,7 @@ const UserMenu: FC<UserMenuProps> = ({currentUser}) => {
   const registerModal = useRegisterModal()
   const loginModal = useLoginModal()
   const rentModal = useRentModal()
+  const router = useRouter()
   const onRent = useCallback(() => { 
     if(!currentUser){
       return loginModal.onOpen()
@@ -94,19 +96,19 @@ const UserMenu: FC<UserMenuProps> = ({currentUser}) => {
            {currentUser ? <>
               <MenuItem 
                 label="My trips" 
-                onClick={()=>{}}
+                onClick={()=>{router.push('/trips')}}
               />
               <MenuItem 
                 label="My favourites" 
-                onClick={()=>{}}
+                onClick={()=>{router.push('/favourites')}}
               />
               <MenuItem 
                 label="My reservations" 
-                onClick={()=>{}}
+                onClick={()=>{router.push('/reservations')}}
               />
               <MenuItem 
                 label="My properties" 
-                onClick={()=>{}}
+                onClick={()=>{router.push('/properties')}}
               />
               <MenuItem 
                 label="Airbnb my home" 

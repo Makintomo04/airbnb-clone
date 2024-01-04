@@ -3,7 +3,7 @@ import { FC } from 'react'
 import Select from 'react-select'
 import Flag from 'react-world-flags'
 import makeAnimated from 'react-select/animated';
-export type CountrySelectView = {
+export type CountrySelectValue = {
   flag: string;
   label: string;
   latlng: number[];
@@ -11,8 +11,8 @@ export type CountrySelectView = {
   value: string;
 }
 interface CountrySelectProps {
-  value?: CountrySelectView;
-  onChange: (value: CountrySelectView) => void;
+  value?: CountrySelectValue;
+  onChange: (value: CountrySelectValue) => void;
 }
 const animatedComponents = makeAnimated();
 const CountrySelect: FC<CountrySelectProps> = ({value, onChange}) => {
@@ -23,7 +23,7 @@ const CountrySelect: FC<CountrySelectProps> = ({value, onChange}) => {
     <Select
       value={value}
       components={animatedComponents}
-      onChange={(value) => onChange(value as CountrySelectView)}
+      onChange={(value) => onChange(value as CountrySelectValue)}
       options={getAll()}
       // getOptionLabel={(option) => option.label}
       // getOptionValue={(option) => option.value}
